@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;;
+            background-image: url('https://media.gettyimages.com/id/1312706413/photo/modern-hospital-building.jpg?s=612x612&w=gi&k=20&c=1-EC4Mxf--5u4ItDIzrIOrduXlbKRnbx9xWWtiifrDo=');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        form {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO7wuXHkCYGe07PuZ1YwpnpFpr5aTiPIochA&usqp=CAU');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 700px;
+            height: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #000;
+            font-size: 18px;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            width: 60%;
+            padding: 12px;
+            background-color: #378dc6;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background-color 0.5s;
+            margin-top: 45px;
+
+        }
+
+        button:hover {
+            background-color: #0d69a7;
+        }
+
+           nav {
+            display: flex;
+            justify-content: center;
+            background-color: #191414;
+            position: fixed;
+            top: 0;
+            width: 100%;
+
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            font-family: 'DM Sans';
+            justify-content: space-evenly;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+
+
+        .signup-input {
+            border-width: 2px;
+             border-color: white;
+            font-family: 'DM Sans';
+            padding-right: 30px; /* Adjust the padding to make space for the icon */
+        }}
+
+        .signup-input:focus {
+        border-color: darkgrey; /* Change border color on focus */
+             }
+
+
+        .flash-notification {
+            display: block;
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: content;
+            padding: 20px 25px 20px 25px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #2B3246;
+            border: 2px solid #2B3246;
+            border-radius: 5px;
+            opacity: 0;
+            animation: drop-in-fade-out 3.5s 0.4s cubic-bezier(.32,1.75,.65,.91);
+
+        }
+
+        .flash-notification .flash__icon {
+            position: absolute;
+            top: 50%;
+            left: 0
+            width: 1.2em;
+            height: 100%;
+            padding: 0 0.4em;
+            background-color: #66847C;
+            color: #FFF;
+            font-size: 36px;
+            font-weight: 300;
+            transform: translate(0,-50%);
+        }
+
+        .flash-notification .flash__icon .icon {
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+        }
+
+        @keyframes drop-in-fade-out {
+            0% {
+                opacity: 0;
+                visibility: visible;
+                transform: translate3d(0, -200%, 0);
+            }
+            12% {
+                transform: translate3d(0, 0, 0);
+            }
+            20% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+                visibility: visible;
+                transform: translate3d(0, 0, 0);
+            }
+            80% {
+                opacity: 0
+
+            }
+
+        }
+       .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 26px;
+            top: 38%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 1;
+            color: #000; /* Change the color as needed */
+        }
+
+        .signup-input {
+            width: calc(100% - 30px);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 16px;
+            position: relative;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+
+    </style>
+</head>
+<body>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+<form id="signupForm">
+    <h2 style="margin-bottom: 50px;">
+        Patient Signup</h2>
+    <input type="text" id="username" class="signup-input" placeholder="Username" required>
+    <input type="email" id="email" class="signup-input" placeholder="Email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+    <div class="password-container">
+        <input type="password" id="password" class="signup-input" placeholder="Password" required>
+        <div class="eye-icon" onclick="togglePasswordVisibility()">
+            <i class="fas fa-eye"></i>
+        </div>
+    </div>
+    <input type="number" id="phone" class="signup-input" placeholder="Phone" required pattern="\d{10}">
+    <input type="number" id="age" class="signup-input" placeholder="Age" required>
+    <button type="button" onclick="validateSignup()" style="
+    font-family: 'DM Sans';
+">Save and Continue</button>
+    <div class="flash-notification" id="flashNotification">Test successful!</div>
+</form>
+
+<script>
+    function validateSignup() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var email = document.getElementById('email').value;
+        var phone = document.getElementById('phone').value;
+        var age = document.getElementById('age').value;
+        var flashNotification = document.getElementById('flashNotification');
+
+         var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+         if (!emailRegex.test(email)) {
+            emailError.textContent = 'Invalid email';
+              return;
+          } else {
+            emailError.textContent = '';
+             }
+
+
+        // Add your authentication logic here
+        // For demonstration purposes, let's assume a simple username and password
+        if (username === 'test' && password === 'test') {
+            // Trigger confetti effect
+            triggerConfetti();
+        } else {
+            // flashNotification.textContent = 'Creating account, please wait';
+            // showFlashNotification();
+            triggerConfetti();
+        }
+    }
+
+    function showFlashNotification() {
+        var flashNotification = document.getElementById('flashNotification');
+        flashNotification.style.opacity = 1;
+        setTimeout(function() {
+            flashNotification.style.opacity = 0;
+        }, 2000);
+    }
+
+    function triggerConfetti() {
+        // Configure confetti options
+        var confettiConfig = {
+            particleCount: 1000,
+            spread: 70,
+            startVelocity: 50,
+            ticks: 200,
+            gravity: 200,
+        };
+
+        // Trigger confetti effect
+        confetti(confettiConfig);
+    }
+
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = document.querySelector('.eye-icon i');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
+    }
+</script>
+</body>
+</html>
